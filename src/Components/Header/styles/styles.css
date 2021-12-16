@@ -1,0 +1,38 @@
+.navigators button {
+  outline: 0;
+  border: none;
+  width: 32px;
+  height: 32px;
+  background-color: black;
+  opacity: 0.2;
+  color: #ffffff;
+  border-radius: 23px;
+  font-size: 22px;
+  margin: 0px 16px 0px 0px;
+}
+
+.navigators button svg {
+  margin: 3px 0px 0px 0px;
+}
+
+.bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+}
+
+.bar .user-profile {
+  width: 28px;
+  height: 28px;
+  border-radius: 19px;
+  background-color: aliceblue;
+  margin: 2px;
+}
+
+.bar .user-name {
+  color: white;
+  font-weight: 700;
+  margin-top: 4px;
+}
+/*# sourceMappingURL=styles.css.map */

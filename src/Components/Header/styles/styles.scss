@@ -1,0 +1,33 @@
+.navigators{
+    button{
+      outline: 0;
+      border: none;
+      width: 32px;
+      height: 32px;
+      background-color: black;
+      opacity: 0.2;
+      color: #ffffff;
+      border-radius: 23px;
+      font-size: 22px;
+      margin: 0px 16px 0px 0px ;
+      svg{
+        margin: 3px 0px 0px 0px;
+      }
+    } 
+}
+.bar {
+  display: flex;
+  gap:8px;
+  .user-profile{
+    width: 28px;
+    height: 28px;
+    border-radius: 19px;
+    background-color: aliceblue;
+    margin: 2px;
+  }
+  .user-name{
+    color: white;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+}

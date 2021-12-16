@@ -1,0 +1,73 @@
+.side-nav {
+  position: fixed;
+  width: 241px;
+  padding: 24px 0px 0px 0px;
+  left: 0;
+  color: #b3b3b3b3;
+  height: 100vh;
+  background-color: black;
+}
+
+.side-nav .header-logo {
+  width: 185px;
+  padding: 0px 24px;
+  height: 40px;
+}
+
+.side-nav .header-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.side-nav ul {
+  margin: 24px 0px 0px 0px;
+  width: 100%;
+  list-style-type: none;
+}
+
+.side-nav ul li {
+  margin: 0px 8px;
+}
+
+.side-nav ul li button {
+  background-color: black;
+  color: #b3b3b3b3;
+  outline: 0;
+  border: none;
+  gap: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 6px 14px;
+  font-size: 24px;
+}
+
+.side-nav ul li button span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.side-nav ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+  padding: 6px 14px;
+  font-size: 24px;
+}
+
+.side-nav ul li a span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.side-nav ul :hover {
+  color: white;
+}
+/*# sourceMappingURL=SideNav.css.map */
