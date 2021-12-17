@@ -6,19 +6,19 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { BiLibrary } from 'react-icons/bi';
 import {AiFillPlusSquare} from 'react-icons/ai';
 import {BiHeartSquare} from 'react-icons/bi';
-import Navigators from './Header/Navigators';
 
 
 function SideNav() {
     return (
         <div className="side-nav">
             <div className="header-logo">
-                <img src={Logo} />
+                <img src={Logo}  alt='logo'/>
             </div>
             <ul>
                 <li>
                     <a>
                         <RiHome2Line />
+                        <RiHome2Fill/>
                         <span>Home</span>
                     </a>
                 </li>

@@ -12,12 +12,14 @@
       margin: 0px 16px 0px 0px ;
       svg{
         margin: 3px 0px 0px 0px;
-      }
+      } 
     } 
 }
 .bar {
   display: flex;
   gap:8px;
+  border-radius: 29px;
+  background-color: #282828;
   .user-profile{
     width: 28px;
     height: 28px;
@@ -29,5 +31,58 @@
     color: white;
     font-weight: 700;
     margin-top: 4px;
+  }
+  .icons{
+    color: white;
+    margin: 0px 6px 0px 0px ;
+ font-size: 25px;
+  }
+}
+.show-box{
+  position: absolute;
+  border-radius: 4px;
+  margin-top: 12px;
+  right: 0;
+  background-color: #282828;
+  ul{
+    padding: 4px;
+    width: 188px;
+    display: flex;
+    flex-direction: column;
+    a{
+      padding: 12px 8px 12px 12px;
+      font-size: 14px;
+      line-height: 16px;
+      color: white;
+    }
+  }
+}
+
+.search-bar{
+  border-radius: 55px;
+  padding: 6px 48px;
+  display: flex;
+  height: 40px;
+  position: relative;
+  background-color: white;
+  width: 364px;
+  input{
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 16px;
+    text-transform: none;
+  }
+  label{
+    position: absolute;
+    font-size: 28px;
+    left: 12px;
+    color: #282828;
+    top:4px;
+    svg{
+      color: #6e6e6e;
+    }
   }
 }
