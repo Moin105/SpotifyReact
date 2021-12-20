@@ -15,6 +15,10 @@
   margin: 3px 0px 0px 0px;
 }
 
+.navigators :active {
+  opacity: 0.8;
+}
+
 .bar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,5 +107,27 @@
 
 .search-bar label svg {
   color: #6e6e6e;
+}
+
+.nav-bar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-bar ul li button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0px 8px 0px 0px;
+  border-radius: 5px;
+}
+
+.nav-bar ul li :active {
+  background-color: #333333;
 }
 /*# sourceMappingURL=styles.css.map */

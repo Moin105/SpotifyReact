@@ -2,7 +2,7 @@ import React from 'react'
 
 function NavBar() {
     return (
-        <div>
+        <div className='nav-bar'>
             <ul>
                 <li><button>PlayLists</button></li>
                 <li><button>Artists</button></li>

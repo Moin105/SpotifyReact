@@ -3,7 +3,7 @@ import Navigators from '../../Components/Header/Navigators';
 // import SearchBar from '../../Components/Header/SearchBar';
 import UserDropDown from '../../Components/Header/UserDropDown';
 import SideNav from '../../Components/SideNav';
-import NavBar from '../../Components/Header/NavBar'
+import NavBar from '../../Components/Header/NavBar';
 import './styles/styles.css'
 
 
