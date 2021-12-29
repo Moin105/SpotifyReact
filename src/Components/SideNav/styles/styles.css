@@ -1,0 +1,38 @@
+.SideBarOption {
+  color: grey;
+  width: 100%;
+  padding: 0px 8px;
+}
+
+.SideBarOption a {
+  background-color: black;
+  color: #b3b3b3b3;
+  outline: 0;
+  border: none;
+  gap: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0px 16px;
+  font-size: 24px;
+  height: 40px;
+}
+
+.SideBarOption a span {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.SideBarOption :active {
+  color: white;
+  background-color: #322f2f !important;
+  border-radius: 6px;
+}
+
+.SideBarOption :hover {
+  color: #e2e2e2;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,41 +1,72 @@
 import React from 'react';
 import Logo from '../assets/images/logo.png';
 import '../Styles/SideNav.css';
-import { RiHome2Fill, RiHome2Line } from 'react-icons/ri';
-import { IoSearchOutline } from 'react-icons/io5';
+import { RiHome2Line } from 'react-icons/ri';
+import { IoSearchOutline, IoTelescope } from 'react-icons/io5';
 import { BiLibrary } from 'react-icons/bi';
-import {AiFillPlusSquare} from 'react-icons/ai';
-import {BiHeartSquare} from 'react-icons/bi';
+import { AiFillPlusSquare } from 'react-icons/ai';
+import { BiHeartSquare } from 'react-icons/bi';
+import SideBarOption from './SideNav/SideBarOption';
+import { useDataLayerValue } from '../DataLayer';
 
 
 function SideNav() {
+    const [{ playlists }, dispatch] = useDataLayerValue()
+
+
     return (
         <div className="side-nav">
             <div className="header-logo">
-                <img src={Logo}  alt='logo'/>
+                <img src={Logo} alt='logo' />
             </div>
             <ul>
-                <li>
-                    <a>
-                        <RiHome2Line />
-                        <RiHome2Fill/>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <IoSearchOutline />
-                        <span>Search</span>
-                    </a>
-                </li>
-                <li>
-                    <a>
-                        <BiLibrary />
-                        <span>Your Library</span>
-                    </a>
-                </li>
+                <SideBarOption Icon={RiHome2Line} title={"Home"} />
+                <SideBarOption Icon={IoSearchOutline} title={"Search"} />
+                <SideBarOption Icon={BiLibrary} title={"Your Library"} />
             </ul>
-            <div>
+            <SideBarOption Icon={AiFillPlusSquare} title={"Create Playlist"} />
+            <SideBarOption Icon={BiHeartSquare} title={"Liked Songs"} />
+            <div className='line'></div>
+            <div className='playlist'>
+
+            </div>
+            {playlists?.items?.map(playlist => (
+                <SideBarOption title={playlist.name} />
+
+            ))}
+
+
+        </div>
+
+    )
+}
+
+export default SideNav
+
+
+
+{/* <ul>
+<li>
+    <a>
+        <RiHome2Line />
+        <RiHome2Fill/>
+        <span>Home</span>
+    </a>
+</li>
+<li>
+    <a>
+        <IoSearchOutline />
+        <span>Search</span>
+    </a>
+</li>
+<li>
+    <a>
+        <BiLibrary />
+        <span>Your Library</span>
+    </a>
+</li>
+</ul> 
+     <div>
                 <ul>
                     <li>
                         <button>
@@ -51,8 +82,4 @@ function SideNav() {
                     </li>
                 </ul>
             </div>
-        </div>
-    )
-}
-
-export default SideNav
+*/}

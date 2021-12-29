@@ -1,0 +1,27 @@
+ .SideBarOption{
+     color: grey;
+     width: 100%;
+     padding: 0px 8px;
+ a{
+    background-color: black;
+    color: #b3b3b3b3;
+    outline: 0;
+    border: none;
+    gap: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    font-size: 24px;
+    height: 40px;
+    span{
+     font-size: 14px;
+     font-weight: 700;
+   }
+  }& :active{
+color: white; 
+  background-color: #322f2f !important;
+  border-radius: 6px;
+} & :hover{
+     color: #e2e2e2;
+   }
+} 

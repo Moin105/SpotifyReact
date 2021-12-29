@@ -36,8 +36,15 @@ function App() {
         }); 
          console.log(">>>>>>>>>>>>>>>>", user);
       })
+      spotify.getUserPlaylists().then((playlists) => {
+      dispatch({
+        type: 'SET_PLAYLISTS',
+        playlists:playlists,
+      });
+     
+      })
     }
-
+    console.log("ddddddddddddeeeeeeeeeeee")
   }, []);
 
   return (

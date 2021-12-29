@@ -1,6 +1,6 @@
-.header {
+.header .wrapper {
   position: fixed;
-  left: 241px;
+  right: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

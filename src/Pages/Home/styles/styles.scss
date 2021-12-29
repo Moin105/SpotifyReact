@@ -1,12 +1,14 @@
 .header{
-    position: fixed;
-    left: 241px;
-    display: flex;
-    justify-content: space-between;
-    height: 64px;
-    width: calc(100% - 321px );
-    margin: 0px 0px 0px auto;
-    align-items: center;
+    .wrapper{
+        position: fixed;
+        right: 45px;
+        display: flex;
+        justify-content: space-between;
+        height: 64px;
+        width: calc(100% - 321px );
+        margin: 0px 0px 0px auto;
+        align-items: center;
+    }
 }
 .header-row{
     display: flex;

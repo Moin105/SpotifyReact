@@ -20,54 +20,29 @@
 }
 
 .side-nav ul {
-  margin: 24px 0px 0px 0px;
+  margin: 24px 0px 12px 0px;
   width: 100%;
   list-style-type: none;
 }
 
-.side-nav ul li {
-  margin: 0px 8px;
+.side-nav .line {
+  height: 1px;
+  width: 80%;
+  background-color: #b3b3b3b3;
+  margin: 15px auto;
 }
 
-.side-nav ul li button {
-  background-color: black;
-  color: #b3b3b3b3;
-  outline: 0;
-  border: none;
-  gap: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 6px 14px;
-  font-size: 24px;
-}
-
-.side-nav ul li button span {
+.side-nav .playlist .SideBarOption {
   font-size: 14px;
-  font-weight: 700;
+  padding: 0px 24px;
 }
 
-.side-nav ul li a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 12px;
-  padding: 6px 14px;
-  font-size: 24px;
+.side-nav .playlist .SideBarOption a {
+  padding: 0px;
+  height: 32px;
 }
 
-.side-nav ul li a span {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.side-nav ul :hover {
-  color: white;
+.side-nav .playlist .SideBarOption a span {
+  font-weight: 400;
 }
 /*# sourceMappingURL=SideNav.css.map */

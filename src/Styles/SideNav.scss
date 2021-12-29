@@ -15,39 +15,60 @@
         height: 100%;
     }
   }
-ul{ margin: 24px 0px 0px 0px;
+ul{ margin: 24px 0px 12px 0px;
     width: 100%;
     list-style-type: none;
-   li{
-     button{
-       background-color: black;
-       color: #b3b3b3b3;
-       outline: 0;
-       border: none;
-       gap: 12px;
-       display: flex;
-       align-items: center;
-       padding: 6px 14px;
-       font-size: 24px;
-       span{
-        font-size: 14px;
-        font-weight: 700;
-      }
-     }
-      margin: 0px 8px;
-      a{
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 6px 14px;
-        font-size: 24px;
-        span{
-          font-size: 14px;
-          font-weight: 700;
-        }
-       } 
-     } & :hover{
-       color: white;
-     }
   }
+.line{
+  height: 1px;
+  width: 80%;
+  background-color: #b3b3b3b3;
+  margin: 15px auto;
+
+}
+//    li{
+//      button{
+//        background-color: black;
+//        color: #b3b3b3b3;
+//        outline: 0;
+//        border: none;
+//        gap: 12px;
+//        display: flex;
+//        align-items: center;
+//        padding: 6px 14px;
+//        font-size: 24px;
+//        span{
+//         font-size: 14px;
+//         font-weight: 700;
+//       }
+//      }
+//       margin: 0px 8px;
+//       a{
+//         display: flex;
+//         align-items: center;
+//         gap: 12px;
+//         padding: 6px 14px;
+//         font-size: 24px;
+//         span{
+//           font-size: 14px;
+//           font-weight: 700;
+//         }
+//        } 
+//      } & :hover{
+//        color: white;
+//      }
+//   }
+.playlist{
+  .SideBarOption{
+    font-size: 14px;
+    padding: 0px 24px;
+    a {
+      padding: 0px;
+      height: 32px;
+      span{
+         font-weight: 400;
+      }
+    }
+  }
+}
 }
