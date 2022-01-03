@@ -6,6 +6,7 @@ import SideNav from '../../Components/SideNav';
 import NavBar from '../../Components/Header/NavBar';
 import './styles/styles.css'
 import Body from '../../Components/Body/Body';
+import Footer from '../../Components/Footer/footer';
 
 
 function Home() {
@@ -25,6 +26,7 @@ function Home() {
             <SideNav />
             <Body>
             </Body>
+            <Footer/>
         </div>
 
     )

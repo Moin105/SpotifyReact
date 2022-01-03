@@ -31,7 +31,8 @@ function SideNav() {
 
             </div>
             {playlists?.items?.map(playlist => (
-                <SideBarOption title={playlist.name} />
+                <SideBarOption title={playlist.name}
+                 key={playlist.name} />
 
             ))}
 
