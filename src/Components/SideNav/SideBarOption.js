@@ -9,8 +9,8 @@ function SideBarOption({ title, Icon }) {
                 <span>
                     {title}
                 </span>
+                
             </a>
-
         </div>
     )
 }

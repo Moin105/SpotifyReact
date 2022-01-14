@@ -6,6 +6,9 @@
   bottom: 0;
   height: 90px;
   padding: 0 16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -52,5 +55,65 @@
 .footer .song-card .box p {
   font-size: 11px;
   color: #b3b3b3;
+}
+
+.footer .player {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .player .upper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer .player .upper button {
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  color: white;
+  background-color: #181818;
+}
+
+.footer .player .upper .play {
+  font-size: 32px;
+  margin-top: -5px;
+}
+
+.footer .player .playing-line {
+  height: 3px;
+  border-radius: 233px;
+  background-color: beige;
+  width: 300px;
+}
+
+.footer .volume {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.footer .volume .hr {
+  height: 3px;
+  width: 100px;
+  background-color: beige;
 }
 /*# sourceMappingURL=styles.css.map */

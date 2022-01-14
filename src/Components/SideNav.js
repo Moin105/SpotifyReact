@@ -23,6 +23,7 @@ function SideNav() {
                 <SideBarOption Icon={RiHome2Line} title={"Home"} />
                 <SideBarOption Icon={IoSearchOutline} title={"Search"} />
                 <SideBarOption Icon={BiLibrary} title={"Your Library"} />
+                {/* <p>{Icon}</p> */}
             </ul>
             <SideBarOption Icon={AiFillPlusSquare} title={"Create Playlist"} />
             <SideBarOption Icon={BiHeartSquare} title={"Liked Songs"} />
