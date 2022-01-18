@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navigators from '../../Components/Header/Navigators';
 // import SearchBar from '../../Components/Header/SearchBar';
 import UserDropDown from '../../Components/Header/UserDropDown';
@@ -9,7 +9,8 @@ import Body from '../../Components/Body/Body';
 import Footer from '../../Components/Footer/footer';
 
 
-function Home() {
+function Home(props) {
+    useEffect(()=>{console.log("token >>>>>>", props)})
     return (
         <div>
             <div className='header'>
@@ -19,11 +20,11 @@ function Home() {
                         {/* <SearchBar/> */}
                         {/* <NavBar/> */}
                     </div>
-                    <UserDropDown />
+                    <UserDropDown  user={props.user}/>
                 </div>
 
             </div>
-            <SideNav />
+            <SideNav token={props.token} playlists={props.playlists}/>
             <Body>
             </Body>
             <Footer/>

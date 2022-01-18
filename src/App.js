@@ -9,9 +9,11 @@ import { useDataLayerValue } from './DataLayer'
 
 
 function App() {
-  const [token, setToken] = useState(null)
-  // const [{ user, token }, dispatch] = useDataLayerValue();
+  const [token, setToken] = useState(null);
+  const [user,setUser] = useState(null);
+  const [playlist,setPlaylist] = useState(null);
   const spotify = new SpotifyWebApi()
+  const [tracks,setTracks] = useState(null);
 
   useEffect(() => {
 
@@ -20,39 +22,28 @@ function App() {
     const _token = hash.access_token;
 
     if (_token) {
+      
       setToken(_token)
-    //  dispatch({
-    //    type:"SET_TOKEN",
-    //    token: _token
-    //  })
     //  console.log(">>>>>>>>>>>>>>>>", token);
-
-
-    //   spotify.setAccessToken(_token);
-     
-    //   spotify.getMe().then(user => {
-
-    //     dispatch({
-    //       type: 'SET_USER',
-    //       user: user,
-    //     }); 
-    //      console.log(">>>>>>>>>>>>>>>>", user);
-    //   })
-    //   spotify.getUserPlaylists().then((playlists) => {
-    //   dispatch({
-    //     type: 'SET_PLAYLISTS',
-    //     playlists:playlists,
-    //   });
-     
-    //   })
+      spotify.setAccessToken(_token);
+      spotify.getMe().then(user => {
+      setUser(user)
+         console.log(">>>>>>>>>>>>>>>>", user);
+      })
+      spotify.getUserPlaylists().then((playlists) => {
+      setPlaylist(playlists)
+      console.log("444444444444",playlists)
+      })
     }
-    console.log("ddddddddddddeeeeeeeeeeee")
+    // console.log(")))))))))))", spotify)
+    // spotify.getTracks().then((tracks)=>{
+    //    setTracks(tracks)
+    // })
   }, []);
 
   return (
     <div className="App">
-
-      {token ? (<Home />) : (<Login />)}
+      {token ? (<Home token={token} user={user}  playlists={playlist} />) : (<Login />)}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Logo from '../assets/images/logo.png';
 import '../Styles/SideNav.css';
 import { RiHome2Line } from 'react-icons/ri';
@@ -8,12 +8,11 @@ import { AiFillPlusSquare } from 'react-icons/ai';
 import { BiHeartSquare } from 'react-icons/bi';
 import SideBarOption from './SideNav/SideBarOption';
 import { useDataLayerValue } from '../DataLayer';
+import SpotifyWebApi from 'spotify-web-api-js';
+import {getTokenFromResponse} from '../Components/spotify';
 
-
-function SideNav() {
-    const [{ playlists }, dispatch] = useDataLayerValue()
-
-
+function SideNav(props) {
+    
     return (
         <div className="side-nav">
             <div className="header-logo">
@@ -31,11 +30,12 @@ function SideNav() {
             <div className='playlist'>
 
             </div>
-            {playlists?.items?.map(playlist => (
+             { props.playlists?.items?.map(playlist => (
                 <SideBarOption title={playlist.name}
-                 key={playlist.name} />
+                 key={playlist.name}  
+                 />
 
-            ))}
+            ))} 
 
 
         </div>

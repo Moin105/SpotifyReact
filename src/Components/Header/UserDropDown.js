@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import './styles/styles.css'
 
-function UserDropDown() {
+function UserDropDown(props) {
     const [show, setshow] = useState(false);
 
     const showDropDown = () => {
@@ -15,10 +15,11 @@ function UserDropDown() {
     return (
         <div>
             <div className='bar' onClick={showDropDown}>
-                <div className='user-profile' >
+                <div  >
+                   <img className='user-profile' src={props?.user?.images[0].url }/>
                 </div>
                 <div className='user-name'>
-                    <p>Moin Latif</p>
+                    <p>{props?.user?.display_name}</p>
                 </div>
                 <div className='icons'>
                     {show ? <MdArrowDropUp /> : <MdArrowDropDown />}
