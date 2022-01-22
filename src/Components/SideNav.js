@@ -1,53 +1,43 @@
-import React, { useEffect } from 'react';
-import Logo from '../assets/images/logo.png';
-import '../Styles/SideNav.css';
-import { RiHome2Line } from 'react-icons/ri';
-import { IoSearchOutline, IoTelescope } from 'react-icons/io5';
-import { BiLibrary } from 'react-icons/bi';
-import { AiFillPlusSquare } from 'react-icons/ai';
-import { BiHeartSquare } from 'react-icons/bi';
-import SideBarOption from './SideNav/SideBarOption';
-import { useDataLayerValue } from '../DataLayer';
-import SpotifyWebApi from 'spotify-web-api-js';
-import {getTokenFromResponse} from '../Components/spotify';
+import React from "react";
+import Logo from "../assets/images/logo.png";
+import "../Styles/SideNav.css";
+import { RiHome2Line } from "react-icons/ri";
+import { IoSearchOutline } from "react-icons/io5";
+import { BiLibrary } from "react-icons/bi";
+import { AiFillPlusSquare } from "react-icons/ai";
+import { BiHeartSquare } from "react-icons/bi";
+import SideBarOption from "./SideNav/SideBarOption";
+// import { useDataLayerValue } from '../DataLayer';
+// import SpotifyWebApi from 'spotify-web-api-js';
+// import {getTokenFromResponse} from '../Components/spotify';
 
 function SideNav(props) {
-    
-    return (
-        <div className="side-nav">
-            <div className="header-logo">
-                <img src={Logo} alt='logo' />
-            </div>
-            <ul>
-                <SideBarOption Icon={RiHome2Line} title={"Home"} />
-                <SideBarOption Icon={IoSearchOutline} title={"Search"} />
-                <SideBarOption Icon={BiLibrary} title={"Your Library"} />
-                {/* <p>{Icon}</p> */}
-            </ul>
-            <SideBarOption Icon={AiFillPlusSquare} title={"Create Playlist"} />
-            <SideBarOption Icon={BiHeartSquare} title={"Liked Songs"} />
-            <div className='line'></div>
-            <div className='playlist'>
-
-            </div>
-             { props.playlists?.items?.map(playlist => (
-                <SideBarOption title={playlist.name}
-                 key={playlist.name}  
-                 />
-
-            ))} 
-
-
-        </div>
-
-    )
+  return (
+    <div className="side-nav">
+      <div className="header-logo">
+        <img src={Logo} alt="logo" />
+      </div>
+      <ul>
+        <SideBarOption Icon={RiHome2Line} title={"Home"} />
+        <SideBarOption Icon={IoSearchOutline} title={"Search"} />
+        <SideBarOption Icon={BiLibrary} title={"Your Library"} />
+        {/* <p>{Icon}</p> */}
+      </ul>
+      <SideBarOption Icon={AiFillPlusSquare} title={"Create Playlist"} />
+      <SideBarOption Icon={BiHeartSquare} title={"Liked Songs"} />
+      <div className="line"></div>
+      <div className="playlist"></div>
+      {props.playlists?.items?.map((playlist) => (
+        <SideBarOption title={playlist.name} key={playlist.name} />
+      ))}
+    </div>
+  );
 }
 
-export default SideNav
+export default SideNav;
 
-
-
-{/* <ul>
+{
+  /* <ul>
 <li>
     <a>
         <RiHome2Line />
@@ -84,4 +74,5 @@ export default SideNav
                     </li>
                 </ul>
             </div>
-*/}
+*/
+}

@@ -7,7 +7,7 @@ import NavBar from '../../Components/Header/NavBar';
 import './styles/styles.css'
 import Body from '../../Components/Body/Body';
 import Footer from '../../Components/Footer/footer';
-
+import SearchBar from '../../Components/Header/SearchBar';
 
 function Home(props) {
     useEffect(()=>{console.log("token >>>>>>", props)})
@@ -17,7 +17,7 @@ function Home(props) {
                 <div className='wrapper'>
                     <div className='header-row'>
                         <Navigators />
-                        {/* <SearchBar/> */}
+                        <SearchBar/>
                         {/* <NavBar/> */}
                     </div>
                     <UserDropDown  user={props.user}/>
