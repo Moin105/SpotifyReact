@@ -12,7 +12,15 @@ function SearchSong({ tracks }) {
       ></button>
       <div>
         {tracks.map((tracks) => {
-          return <div> {tracks.title}</div>;
+          return (
+            <div>
+              <div>{tracks.title}</div>
+              <img
+                src={tracks.albumUrl}
+                style={{ height: "64px", width: "64px" }}
+              />
+            </div>
+          );
         })}
       </div>
       {/* {tracks.map((tracks) => {
