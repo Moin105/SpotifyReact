@@ -27,6 +27,8 @@ function App() {
     if (_token) {
       setToken(_token);
       //  console.log(">>>>>>>>>>>>>>>>", token);
+      console.log("ttttttt>>>>>>", spotify);
+
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
         setUser(user);
@@ -35,17 +37,16 @@ function App() {
       spotify.getUserPlaylists().then((playlists) => {
         setPlaylist(playlists);
         console.log("444444444444", playlists);
-        console.log("ttttttt>>>>>>", spotify);
       });
       spotify.getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE", function (err, data) {
         if (err) console.error("wwwwwwwwww", err);
         else console.log("Artist albums", data);
       });
       spotify.getFeaturedPlaylists().then((featuredPlaylist) => {
-        console.log("33333####", featuredPlaylist);
+        // console.log("33333####", featuredPlaylist);
       });
       spotify.getCategories().then((allCategories) => {
-        console.log("%%%%%%%", allCategories);
+        // console.log("%%%%%%%", allCategories);
         setCategories(allCategories);
       });
       spotify

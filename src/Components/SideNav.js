@@ -7,11 +7,21 @@ import { BiLibrary } from "react-icons/bi";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { BiHeartSquare } from "react-icons/bi";
 import SideBarOption from "./SideNav/SideBarOption";
+import SpotifyWebApi from "spotify-web-api-js";
+
 // import { useDataLayerValue } from '../DataLayer';
 // import SpotifyWebApi from 'spotify-web-api-js';
 // import {getTokenFromResponse} from '../Components/spotify';
 
 function SideNav(props) {
+  const spotify = new SpotifyWebApi();
+
+  const toTracks = (a) => {
+    spotify.getPlaylistTracks(a).then((tracks) => {
+      console.log("#############", tracks);
+    });
+  };
+
   return (
     <div className="side-nav">
       <div className="header-logo">
@@ -28,7 +38,11 @@ function SideNav(props) {
       <div className="line"></div>
       <div className="playlist"></div>
       {props.playlists?.items?.map((playlist) => (
-        <SideBarOption title={playlist.name} key={playlist.name} />
+        <SideBarOption
+          onClick={toTracks(playlist.id)}
+          title={playlist.name}
+          key={playlist.name}
+        />
       ))}
     </div>
   );
