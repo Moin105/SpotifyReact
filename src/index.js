@@ -3,13 +3,16 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { DataLayer } from "./DataLayer";
-import reducer, { initialState } from "./reducer";
+import { BrowserRouter } from "react-router-dom";
+// import { DataLayer } from "./DataLayer";
+// import reducer, { initialState } from "./reducer";
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <DataLayer initialState={initialState} reducer={reducer}> */}
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
     {/* </DataLayer> */}
   </React.StrictMode>,
   document.getElementById("root")

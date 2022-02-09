@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
-
 import "./styles/style.css";
 const spotify = new SpotifyWebApi();
+
 function SearchCategory(props) {
   //   const [categories, setCategories] = useState([]);
 

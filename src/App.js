@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import { getTokenFromResponse } from "./Components/spotify";
+import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import SpotifyWebApi from "spotify-web-api-js";
 import SearchCategory from "./Pages/Search/SearchCategory";
@@ -78,8 +79,23 @@ function App() {
     <div className="App">
       {token ? (
         <div>
-          <SearchCategory categories={categories} />
-          {/* <Home token={token} user={user} playlists={playlist} /> */}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  token={token}
+                  user={user}
+                  playlists={playlist}
+                  categories={categories}
+                />
+              }
+            ></Route>
+            <Route
+              path="/categories"
+              element={<SearchCategory categories={categories} />}
+            ></Route>
+          </Routes>
         </div>
       ) : (
         <Login />
