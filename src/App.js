@@ -37,7 +37,7 @@ function App() {
       });
       spotify.getUserPlaylists().then((playlists) => {
         setPlaylist(playlists);
-        console.log("444444444444", playlists);
+        console.log("444444444444", playlists.items);
       });
       spotify.getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE", function (err, data) {
         if (err) console.error("wwwwwwwwww", err);

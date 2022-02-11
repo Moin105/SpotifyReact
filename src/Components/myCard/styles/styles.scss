@@ -1,0 +1,25 @@
+.my-card {
+  height: 80px;
+  width: 45%;
+  border-radius: 8px;
+  background-color: rgba(115, 138, 138, 0.4);
+  display: flex;
+  margin: 10px 10px 10px 0px;
+  figure {
+    width: 80px;
+
+    height: 80px;
+    img {
+      height: 100%;
+      border-radius: 8px 0px 0px 8px;
+    }
+  }
+  .info-card {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    h2 {
+      padding: 0px 0px 0px 10px;
+    }
+  }
+}

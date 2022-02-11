@@ -4,12 +4,12 @@ function SearchSong({ tracks }) {
   return (
     <div>
       {/* <div>{track.title}</div> */}
-      <button
+      {/* <button
         style={{ height: "64px", width: "64px" }}
         onClick={() => {
           console.log(tracks);
         }}
-      ></button>
+      ></button> */}
       <div>
         {tracks.map((tracks) => {
           return (

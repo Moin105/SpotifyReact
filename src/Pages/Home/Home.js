@@ -20,14 +20,15 @@ function Home(props) {
         <div className="wrapper">
           <div className="header-row">
             <Navigators />
-            <SearchBar />
+            {/* <SearchBar /> */}
             {/* <NavBar/> */}
           </div>
           <UserDropDown user={props.user} />
         </div>
       </div>
       <SideNav token={props.token} playlists={props.playlists} />
-      <Body></Body>
+      <Body playlists={props.playlists}></Body>
+
       <Footer />
     </div>
   );

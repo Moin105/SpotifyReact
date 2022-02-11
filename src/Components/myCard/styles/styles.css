@@ -1,0 +1,35 @@
+.my-card {
+  height: 80px;
+  width: 45%;
+  border-radius: 8px;
+  background-color: rgba(115, 138, 138, 0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 10px 10px 0px;
+}
+
+.my-card figure {
+  width: 80px;
+  height: 80px;
+}
+
+.my-card figure img {
+  height: 100%;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.my-card .info-card {
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.my-card .info-card h2 {
+  padding: 0px 0px 0px 10px;
+}
+/*# sourceMappingURL=styles.css.map */

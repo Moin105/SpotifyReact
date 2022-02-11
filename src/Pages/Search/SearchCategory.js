@@ -23,7 +23,6 @@ function SearchCategory(props) {
     );
     // setPlaylists(categoryCard);
   };
-
   return (
     <div className="categories">
       {props?.categories?.categories?.items.map((category) => {
