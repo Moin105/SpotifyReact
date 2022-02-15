@@ -1,5 +1,7 @@
 .gradient {
-  width: calc(100% - 241px);
+  justify-content: space-between;
+  //   width: calc(100% - 241px);
+  width: 100%;
   background: rgb(2, 0, 36);
   background: linear-gradient(
     180deg,
@@ -7,15 +9,19 @@
     rgba(35, 35, 172, 1) 0%,
     rgba(12, 21, 26, 1) 100%
   );
-  padding: 50px 0px 0px 37px;
+  padding: 50px 37px 0px 37px;
   position: relative;
   z-index: -2;
   color: white;
-  margin: 0px 0px 0px 241px;
+  //   margin: 0px 0px 0px 241px;
   .section-1 {
     display: flex;
     flex-wrap: wrap;
   }
+}
+.section-2 {
+  display: flex;
+  gap: 24px;
 }
 button {
   background-color: aliceblue;

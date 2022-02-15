@@ -1,0 +1,32 @@
+.album-card {
+  background-color: rgba(115, 138, 138, 0.4);
+  //   width: 218px;
+  width: 21%;
+  padding: 15px;
+  border-radius: 7px;
+
+  figure {
+    // width: 186px;
+    margin-bottom: 16px;
+    height: 186px;
+    img {
+      object-fit: cover;
+      border-radius: 7px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  h3 {
+    font-size: 16px;
+    line-height: 24px;
+    color: white;
+  }
+  p {
+    color: #b3b3b3;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .genre {
+    display: flex;
+  }
+}

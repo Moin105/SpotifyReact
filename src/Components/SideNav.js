@@ -7,7 +7,7 @@ import { BiLibrary } from "react-icons/bi";
 import { AiFillPlusSquare } from "react-icons/ai";
 import { BiHeartSquare } from "react-icons/bi";
 import SideBarOption from "./SideNav/SideBarOption";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
 
 // import { useDataLayerValue } from '../DataLayer';
@@ -29,11 +29,19 @@ function SideNav(props) {
         <img src={Logo} alt="logo" />
       </div>
       <ul>
-        <SideBarOption Icon={RiHome2Line} title={"Home"} />
-        <Link to="/categories">
+        <NavLink to="/" activeClassName="active">
+          {" "}
+          <SideBarOption
+            activeClassName="active"
+            Icon={RiHome2Line}
+            title={"Home"}
+          />
+        </NavLink>
+
+        <NavLink to="/categories" activeClassName="active">
           {" "}
           <SideBarOption Icon={IoSearchOutline} title={"Search"} />
-        </Link>
+        </NavLink>
         <SideBarOption Icon={BiLibrary} title={"Your Library"} />
         {/* <p>{Icon}</p> */}
       </ul>

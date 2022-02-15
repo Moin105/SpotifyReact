@@ -1,0 +1,38 @@
+.album-card {
+  background-color: rgba(115, 138, 138, 0.4);
+  width: 21%;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.album-card figure {
+  margin-bottom: 16px;
+  height: 186px;
+}
+
+.album-card figure img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 7px;
+  height: 100%;
+  width: 100%;
+}
+
+.album-card h3 {
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+}
+
+.album-card p {
+  color: #b3b3b3;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.album-card .genre {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=style.css.map */

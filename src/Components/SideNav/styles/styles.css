@@ -4,7 +4,7 @@
   padding: 0px 8px;
 }
 
-.SideBarOption a {
+.SideBarOption p {
   background-color: black;
   color: #b3b3b3b3;
   outline: 0;
@@ -21,7 +21,7 @@
   height: 40px;
 }
 
-.SideBarOption a span {
+.SideBarOption p span {
   font-size: 14px;
   font-weight: 700;
 }
@@ -34,5 +34,17 @@
 
 .SideBarOption :hover {
   color: #e2e2e2;
+}
+
+ul .active {
+  color: white;
+  background-color: #322f2f !important;
+  border-radius: 6px;
+}
+
+ul .active .SideBarOption p {
+  color: white;
+  background-color: #322f2f !important;
+  border-radius: 7px;
 }
 /*# sourceMappingURL=styles.css.map */

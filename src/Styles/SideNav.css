@@ -25,6 +25,16 @@
   list-style-type: none;
 }
 
+.side-nav ul a {
+  text-decoration: none;
+}
+
+.side-nav ul .active {
+  color: white;
+  background-color: #322f2f !important;
+  border-radius: 6px;
+}
+
 .side-nav .line {
   height: 1px;
   width: 80%;

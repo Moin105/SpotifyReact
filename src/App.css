@@ -1,9 +1,9 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-body{
+body {
   background-color: black;
 }
 
@@ -30,7 +30,19 @@ body{
     transform: rotate(360deg);
   }
 }
-button{
+button {
   border: none;
   outline: none;
+}
+.struct {
+  display: flex;
+  width: calc(100% - 241px);
+  justify-content: end;
+}
+.section {
+  display: flex;
+  justify-content: end;
+}
+.main {
+  width: 100%;
 }

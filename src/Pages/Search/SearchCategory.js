@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import "./styles/style.css";
+import { Link } from "react-router-dom";
 const spotify = new SpotifyWebApi();
 
 function SearchCategory(props) {
@@ -31,16 +32,19 @@ function SearchCategory(props) {
             className="categoty_card"
             onClick={() => {
               setPlaylistId(category.id);
+              console.log("#####", category.id);
               GetCategory(playlistId);
             }}
             key={category.id}
           >
             <p className="category_name">{category.name}</p>
+            {/* <Link to={`/categories/`+ category.name }> */}{" "}
             <img
               className="category_img"
               alt={category.name}
               src={category.icons[0].url}
             />
+            {/* </Link> */}
           </div>
         );
       })}

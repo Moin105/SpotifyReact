@@ -4,10 +4,10 @@ import "./styles/styles.css";
 function SideBarOption({ title, Icon }) {
   return (
     <div className="SideBarOption">
-      <a>
+      <p>
         {Icon && <Icon className="sidebar-icon" />}
         <span>{title}</span>
-      </a>
+      </p>
     </div>
   );
 }

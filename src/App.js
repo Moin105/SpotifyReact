@@ -7,6 +7,13 @@ import Login from "./Pages/Login/Login";
 import SpotifyWebApi from "spotify-web-api-js";
 import SearchCategory from "./Pages/Search/SearchCategory";
 // import { useDataLayerValue } from './DataLayer'
+import SideNav from "../src/Components/SideNav";
+import Footer from "./Components/Footer/footer";
+// import Home from "./Pages/Home/Home";
+import Navigators from "./Components/Header/Navigators";
+import SearchBar from "./Components/Header/SearchBar";
+import UserDropDown from "./Components/Header/UserDropDown";
+import CategoryDetail from "./Pages/CategoryDetail/CategoryDetail";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -52,21 +59,25 @@ function App() {
       });
       spotify
         .getArtists([
-          "2hazSY4Ef3aB9ATXW7F5w3",
+          // "2hazSY4Ef3aB9ATXW7F5w3",
           "6J6yx1t3nwIDyPXk5xa7O8",
           "43ZHCT0cAZBISjO8DG9PnE",
-          "26VFTg2z8YR0cCuwLzESi2",
+          // "26VFTg2z8YR0cCuwLzESi2",
           "6LEG9Ld1aLImEFEVHdWNSB",
           "74OaRjmyh0XyRZsQQQ5l7c",
         ])
         .then(
           function (data) {
+            setAlbum(data);
             console.log("Artists information", data);
           },
           function (err) {
             console.error(err);
           }
         );
+      // spotify.getPlaylistTracks("11dFghVXANMlKmJXsNCbNl").then((Tracks) => {
+      //   console.log("44444$$$$$", Tracks);
+      // });
     }
 
     // console.log(")))))))))))", spotify)
@@ -78,26 +89,65 @@ function App() {
   return (
     <div className="App">
       {token ? (
-        <div>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Home
-                  token={token}
-                  user={user}
-                  playlists={playlist}
-                  categories={categories}
-                />
-              }
-            ></Route>
-            <Route
-              path="/categories"
-              element={<SearchCategory categories={categories} />}
-            ></Route>
-          </Routes>
+        <div className="section">
+          <div className="struct">
+            <SideNav token={token} playlists={playlist} />
+            <div className="main">
+              <header className="header">
+                <div className="wrapper">
+                  <div className="header-row">
+                    <Navigators />
+                    {/* <SearchBar /> */}
+                    {/* <NavBar/> */}
+                  </div>
+                  <UserDropDown user={user} />
+                </div>
+              </header>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Home
+                      albums={album}
+                      token={token}
+                      user={user}
+                      playlists={playlist}
+                      categories={categories}
+                    />
+                  }
+                ></Route>
+                <Route
+                  path="/categories"
+                  element={<SearchCategory categories={categories} />}
+                ></Route>
+                <Route
+                  path="/categories/:category"
+                  element={<CategoryDetail />}
+                ></Route>
+              </Routes>
+            </div>
+          </div>
+          <Footer />
         </div>
       ) : (
+        // <Routes>
+        //   <Route
+        //     path="/"
+        //     element={
+        //       <Home
+        //         albums={album}
+        //         token={token}
+        //         user={user}
+        //         playlists={playlist}
+        //         categories={categories}
+        //       />
+        //     }
+        //   ></Route>
+        //   <Route
+        //     path="/categories"
+        //     element={<SearchCategory categories={categories} />}
+        //   ></Route>
+        // </Routes>
         <Login />
       )}
     </div>
