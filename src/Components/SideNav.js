@@ -32,13 +32,13 @@ function SideNav(props) {
         <NavLink to="/" activeClassName="active">
           {" "}
           <SideBarOption
-            activeClassName="active"
+            // activeClassName="active"
             Icon={RiHome2Line}
             title={"Home"}
           />
         </NavLink>
 
-        <NavLink to="/categories" activeClassName="active">
+        <NavLink to="/categories">
           {" "}
           <SideBarOption Icon={IoSearchOutline} title={"Search"} />
         </NavLink>

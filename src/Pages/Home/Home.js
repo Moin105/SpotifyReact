@@ -20,18 +20,20 @@ function Home(props) {
     console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@", props?.albums?.artists[0]);
   };
   return (
-    <div className="gradient">
-      <h2>Good Evening</h2>
-      <div className="section-1">
-        {props?.playlists?.items.map((playlist) => {
-          return (
-            <MyCard
-              title={playlist.name}
-              images={playlist.images[0].url}
-              key={playlist.id}
-            ></MyCard>
-          );
-        })}
+    <div>
+      <div className="gradient">
+        <h2>Good Evening</h2>
+        <div className="section-1">
+          {props?.playlists?.items.map((playlist) => {
+            return (
+              <MyCard
+                title={playlist.name}
+                images={playlist.images[0].url}
+                key={playlist.id}
+              ></MyCard>
+            );
+          })}
+        </div>
       </div>
       <h2>Made For {props?.user?.display_name}</h2>
       <div className="section-2">
