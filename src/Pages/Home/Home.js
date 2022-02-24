@@ -14,11 +14,11 @@ import AlbumCard from "../../Components/AlbumCard/AlbumCard";
 
 function Home(props) {
   useEffect(() => {
-    console.log("token >>>>>>", props);
+    // console.log("token >>>>>>", props);
   });
-  const getConsole = () => {
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@", props?.albums?.artists[0]);
-  };
+  // const getConsole = () => {
+  //   console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@", props?.albums?.artists[0]);
+  // };
   return (
     <div>
       <div className="gradient">

@@ -1,6 +1,5 @@
 .album-card {
   background-color: rgba(115, 138, 138, 0.4);
-  width: 21%;
   padding: 15px;
   border-radius: 7px;
 }
@@ -21,6 +20,10 @@
 .album-card h3 {
   font-size: 16px;
   line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 125px;
   color: white;
 }
 

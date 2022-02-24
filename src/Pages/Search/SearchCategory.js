@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SpotifyWebApi from "spotify-web-api-js";
+import { useDataLayerValue } from "../../store/DataLayer";
 import "./styles/style.css";
 import { Link } from "react-router-dom";
-import Playlist from "../../store/playlist";
+// import Playlist from "../../store/playlist";
 const spotify = new SpotifyWebApi();
 
 function SearchCategory(props) {
   //   const [categories, setCategories] = useState([]);
-  var i = 0;
+  // var i = 0;
 
   // useEffect(() => {
   //   const id = props?.categories?.categories?.items;
@@ -21,16 +22,18 @@ function SearchCategory(props) {
   //     });
   //   }
   // }, [i]);
+  const [{ playlists }, dispatch] = useDataLayerValue();
 
-  const [playlist, setPlaylist] = useState([]);
+  // const [playlist, setPlaylist] = useState(null);
   // const [playlistId, setPlaylistId] = useState("");
-  function GetCategory(a) {
-    spotify.getCategoryPlaylists(a).then((categoryCard) => {
-      setPlaylist(categoryCard);
-      console.log("@@@@@@@@", playlist);
-      props.setCategoryPlaylist(playlist);
 
-      // console.log("ssssssssssssssssss", props.playlistCategory(playlists));
+  function GetCategory(a) {
+    spotify.getCategoryPlaylists(a).then((playlists) => {
+      dispatch({
+        type: "SET_CATEGORY_PLAYLIST",
+        playlists: playlists,
+      });
+      console.log("@@@@@@@@", playlists);
     });
   }
   return (
@@ -41,6 +44,7 @@ function SearchCategory(props) {
           <div
             className="categoty_card"
             onClick={() => {
+              // setCategoryPlaylist(category.id);
               GetCategory(category.id);
               console.log("ssss", category.id);
             }}

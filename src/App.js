@@ -14,35 +14,43 @@ import Navigators from "./Components/Header/Navigators";
 import SearchBar from "./Components/Header/SearchBar";
 import UserDropDown from "./Components/Header/UserDropDown";
 import CategoryDetail from "./Pages/CategoryDetail/CategoryDetail";
-import Playlist from "./store/playlist";
+import TrackTable from "./Components/songTable/songsTable";
 
 function App() {
-  const [token, setToken] = useState(null);
-  const [user, setUser] = useState(null);
+  // const DataLayer = useDataLayerValue();
+  // const [token, setToken] = useState(null);
+  const [{ user, token }, dispatch] = useDataLayerValue();
   const [playlist, setPlaylist] = useState(null);
   const [album, setAlbum] = useState(null);
   const [categories, setCategories] = useState([]);
   const [categoryPlaylist, setCategoryPlaylist] = useState([]);
-  const DataLayer = useDataLayerValue();
+
   // const spotify = new SpotifyWebApi();
   // const [search, setSearch] = useState(null);
 
   useEffect(() => {
     const spotify = new SpotifyWebApi();
-    console.log("######", DataLayer);
+    // console.log("######", DataLayer);
     const hash = getTokenFromResponse();
     window.location.hash = "";
     const _token = hash.access_token;
 
     if (_token) {
-      setToken(_token);
-      //  console.log(">>>>>>>>>>>>>>>>", token);
+      // setToken(_token);
+      dispatch({
+        type: "SET_TOKEN",
+        token: _token,
+      });
+      // console.log(">>>>>>>>>>>>>>>>", token);
       console.log("ttttttt>>>>>>", spotify);
-
       spotify.setAccessToken(_token);
       spotify.getMe().then((user) => {
-        setUser(user);
-        console.log(">>>>>>>>>>>>>>>>", user);
+        dispatch({
+          type: "SET_USER",
+          user: user,
+        });
+        // setUser(user);
+        // console.log(">>>>>>>>>>>>>>>>", user);
       });
       spotify.getUserPlaylists().then((playlists) => {
         setPlaylist(playlists);
@@ -80,6 +88,9 @@ function App() {
       // spotify.getPlaylistTracks("11dFghVXANMlKmJXsNCbNl").then((Tracks) => {
       //   console.log("44444$$$$$", Tracks);
       // });
+      // spotify.getMySavedTracks().then((tracks) => {
+      //   console.log("#", tracks);
+      // });
     }
 
     // console.log(")))))))))))", spotify)
@@ -87,84 +98,88 @@ function App() {
     //    setTracks(tracks)
     // })
   }, []);
-
+  console.log(":a", token);
   return (
-    <Playlist.Provider
-      value={{
-        categoryPlaylist,
-        // console.log("SSSS",playlist)
-      }}
-    >
-      <div className="App">
-        {token ? (
-          <div className="section">
-            <div className="struct">
-              <SideNav token={token} playlists={playlist} />
-              <div className="main">
-                <header className="header">
-                  <div className="wrapper">
-                    <div className="header-row">
-                      <Navigators />
-                      {/* <SearchBar /> */}
-                      {/* <NavBar/> */}
-                    </div>
-                    <UserDropDown user={user} />
+    // <Playlist.Provider
+    //   value={{
+    //     categoryPlaylist,
+    //     // console.log("SSSS",playlist)
+    //   }}
+    // >
+    <div className="App">
+      {token ? (
+        <div className="section">
+          <div className="struct">
+            <SideNav token={token} playlists={playlist} />
+            <div className="main">
+              <header className="header">
+                <div className="wrapper">
+                  <div className="header-row">
+                    <Navigators />
+                    <SearchBar />
+                    {/* <NavBar/> */}
                   </div>
-                </header>
-                <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      <Home
-                        albums={album}
-                        token={token}
-                        user={user}
-                        playlists={playlist}
-                        categories={categories}
-                      />
-                    }
-                  ></Route>
-                  <Route
-                    path="/categories"
-                    element={
-                      <SearchCategory
-                        categories={categories}
-                        setCategoryPlaylist={setCategoryPlaylist}
-                      />
-                    }
-                  ></Route>
-                  <Route
-                    path="/categories/:category"
-                    element={<CategoryDetail />}
-                  ></Route>
-                </Routes>
-              </div>
+                  <UserDropDown user={user} />
+                </div>
+              </header>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <Home
+                      albums={album}
+                      token={token}
+                      user={user}
+                      playlists={playlist}
+                      categories={categories}
+                    />
+                  }
+                ></Route>
+                <Route
+                  path="/categories"
+                  element={
+                    <SearchCategory
+                      categories={categories}
+                      setCategoryPlaylist={setCategoryPlaylist}
+                    />
+                  }
+                ></Route>
+                <Route
+                  path="/categories/:category"
+                  element={<CategoryDetail />}
+                ></Route>
+                <Route
+                  path="/playlist/:playlist"
+                  element={<TrackTable />}
+                ></Route>
+              </Routes>
             </div>
-            <Footer />
           </div>
-        ) : (
-          // <Routes>
-          //   <Route
-          //     path="/"
-          //     element={
-          //       <Home
-          //         albums={album}
-          //         token={token}
-          //         user={user}
-          //         playlists={playlist}
-          //         categories={categories}
-          //       />
-          //     }
-          //   ></Route>
-          //   <Route
-          //     path="/categories"
-          //     element={<SearchCategory categories={categories} />}
-          //   ></Route>
-          // </Routes>
-          <Login />
-        )}
-      </div>
-    </Playlist.Provider>
+          <Footer />
+        </div>
+      ) : (
+        // <Routes>
+        //   <Route
+        //     path="/"
+        //     element={
+        //       <Home
+        //         albums={album}
+        //         token={token}
+        //         user={user}
+        //         playlists={playlist}
+        //         categories={categories}
+        //       />
+        //     }
+        //   ></Route>
+        //   <Route
+        //     path="/categories"
+        //     element={<SearchCategory categories={categories} />}
+        //   ></Route>
+        // </Routes>
+        <Login />
+      )}
+    </div>
+    // </Playlist.Provider>
   );
 }
 

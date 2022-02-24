@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDataLayerValue } from "../../store/DataLayer";
+import { SpotifyWebApi } from "spotify-web-api-js";
 
 function songsTable() {
+  const [{ tracks }, dispatch] = useDataLayerValue;
+  useEffect(() => {
+    console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", tracks);
+  });
+
   return (
     <div>
       <table>

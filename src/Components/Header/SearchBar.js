@@ -3,9 +3,11 @@ import "./styles/styles.css";
 import { IoSearchOutline } from "react-icons/io5";
 import SpotifyWebApi from "spotify-web-api-js";
 import SearchSong from "../../Pages/SearchSong";
-// import { Title } from "@mui/icons-material";
+import { useDataLayerValue } from "../../store/DataLayer";
+//  import { Title } from "@mui/icons-material";
 
 function SearchBar() {
+  const [{ search_result }, dispatch] = useDataLayerValue();
   const [searchResult, setSearchResult] = useState([]);
   const [search, setSearch] = useState("");
   const spotify = new SpotifyWebApi();
@@ -14,31 +16,39 @@ function SearchBar() {
     console.log("ease", search);
     if (!search) return setSearchResult([]);
     // if (!accessToken) return;
-
+    if (!search)
+      return dispatch({
+        type: "SET_SEARCH_RESULT",
+        search_result: [],
+      });
     let cancel = false;
     spotify.searchTracks(search).then((tracks) => {
       // if (cancel) return;
-      setSearchResult(
-        tracks.tracks.items.map((tracks) => {
-          const smallestAlbumImage = tracks.album.images.reduce(
-            (smallest, image) => {
-              if (image.height < smallest.height) return image;
-              return smallest;
-            },
-            tracks.album.images[0]
-          );
+      dispatch({
+        type: "SET_SEARCH",
+        search_result: tracks,
+      });
+      // setSearchResult(
+      //   tracks.tracks.items.map((tracks) => {
+      //     const smallestAlbumImage = tracks.album.images.reduce(
+      //       (smallest, image) => {
+      //         if (image.height < smallest.height) return image;
+      //         return smallest;
+      //       },
+      //       tracks.album.images[0]
+      //     );
 
-          return {
-            artist: tracks.artists[0].name,
-            title: tracks.name,
-            uri: tracks.uri,
-            albumUrl: smallestAlbumImage.url,
-          };
-        })
-      );
+      //     return {
+      //       artist: tracks.artists[0].name,
+      //       title: tracks.name,
+      //       uri: tracks.uri,
+      //       albumUrl: smallestAlbumImage.url,
+      //     };
+      //   })
+      // );
       // s
       // if (!res.body.tracks) {
-      console.log("^^^^^^^^^^^", tracks.tracks.items);
+      console.log("^^^^^^^^^^^", tracks);
       //   return "hold a minute";
       // }
       // );

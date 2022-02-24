@@ -1,0 +1,17 @@
+.category-detail {
+  display: flex;
+  flex-direction: column;
+  padding: 55px 36px 115px 36px;
+  h2 {
+    color: white;
+    font-size: 32px;
+    padding: 5px 0px 23px 0px;
+  }
+  .category-row {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    // margin: 0px 0px 12px 0px;
+    gap: 10px;
+  }
+}

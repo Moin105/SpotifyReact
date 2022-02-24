@@ -4,8 +4,8 @@
           justify-content: space-between;
   width: 100%;
   background: #020024;
-  background: -webkit-gradient(linear, left top, left bottom, from(#020024), color-stop(0%, #2323ac), to(#0c151a));
-  background: linear-gradient(180deg, #020024 0%, #2323ac 0%, #0c151a 100%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#01fe73), color-stop(0%, #23238e), color-stop(45%, #0c1512));
+  background: linear-gradient(180deg, #01fe73 0%, #23238e 0%, #0c1512 45%);
   padding: 50px 37px 0px 37px;
   position: relative;
   z-index: -2;
