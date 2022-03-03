@@ -14,13 +14,15 @@ import Navigators from "./Components/Header/Navigators";
 import SearchBar from "./Components/Header/SearchBar";
 import UserDropDown from "./Components/Header/UserDropDown";
 import CategoryDetail from "./Pages/CategoryDetail/CategoryDetail";
-import TrackTable from "./Components/songTable/songsTable";
+import TrackTable from "./Components/songTable/TrackTable";
+import SearchResult from "./Pages/SearchResult/SearchResult";
 
 function App() {
   // const DataLayer = useDataLayerValue();
   // const [token, setToken] = useState(null);
-  const [{ user, token }, dispatch] = useDataLayerValue();
-  const [playlist, setPlaylist] = useState(null);
+  const [{ user, token, tracks, search_result }, dispatch] =
+    useDataLayerValue();
+  const [userPlaylist, setUserPlaylist] = useState(null);
   const [album, setAlbum] = useState(null);
   const [categories, setCategories] = useState([]);
   const [categoryPlaylist, setCategoryPlaylist] = useState([]);
@@ -53,16 +55,16 @@ function App() {
         // console.log(">>>>>>>>>>>>>>>>", user);
       });
       spotify.getUserPlaylists().then((playlists) => {
-        setPlaylist(playlists);
+        setUserPlaylist(playlists);
         console.log("444444444444", playlists.items);
       });
       spotify.getArtistAlbums("43ZHCT0cAZBISjO8DG9PnE", function (err, data) {
         if (err) console.error("wwwwwwwwww", err);
         else console.log("Artist albums", data);
       });
-      spotify.getFeaturedPlaylists().then((featuredPlaylist) => {
-        // console.log("33333####", featuredPlaylist);
-      });
+      // spotify.getFeaturedPlaylists().then((featuredPlaylist) => {
+      //   // console.log("33333####", featuredPlaylist);
+      // });
       spotify.getCategories().then((allCategories) => {
         // console.log("%%%%%%%", allCategories);
         setCategories(allCategories);
@@ -97,6 +99,7 @@ function App() {
     // spotify.getTracks().then((tracks)=>{
     //    setTracks(tracks)
     // })
+    console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY", search_result);
   }, []);
   console.log(":a", token);
   return (
@@ -110,7 +113,7 @@ function App() {
       {token ? (
         <div className="section">
           <div className="struct">
-            <SideNav token={token} playlists={playlist} />
+            <SideNav token={token} playlists={userPlaylist} />
             <div className="main">
               <header className="header">
                 <div className="wrapper">
@@ -130,7 +133,7 @@ function App() {
                       albums={album}
                       token={token}
                       user={user}
-                      playlists={playlist}
+                      playlists={userPlaylist}
                       categories={categories}
                     />
                   }
@@ -138,7 +141,7 @@ function App() {
                 <Route
                   path="/categories"
                   element={
-                    <SearchCategory
+                    <SearchResult
                       categories={categories}
                       setCategoryPlaylist={setCategoryPlaylist}
                     />
@@ -150,6 +153,7 @@ function App() {
                 ></Route>
                 <Route
                   path="/playlist/:playlist"
+                  render={() => <TrackTable tracks={tracks} />}
                   element={<TrackTable />}
                 ></Route>
               </Routes>

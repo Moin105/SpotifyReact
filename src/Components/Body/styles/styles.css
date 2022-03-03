@@ -4,27 +4,12 @@
           justify-content: space-between;
   width: 100%;
   background: #020024;
-  background: -webkit-gradient(linear, left top, left bottom, from(#01fe73), color-stop(0%, #23238e), color-stop(45%, #0c1512));
-  background: linear-gradient(180deg, #01fe73 0%, #23238e 0%, #0c1512 45%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#01fe73), color-stop(0%, #141441), color-stop(105%, #000000));
+  background: linear-gradient(180deg, #01fe73 0%, #141441 0%, #000000 105%);
   padding: 50px 37px 0px 37px;
   position: relative;
   z-index: -2;
   color: white;
-}
-
-.gradient .section-1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.section-2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 24px;
 }
 
 button {

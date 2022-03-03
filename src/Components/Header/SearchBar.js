@@ -8,20 +8,21 @@ import { useDataLayerValue } from "../../store/DataLayer";
 
 function SearchBar() {
   const [{ search_result }, dispatch] = useDataLayerValue();
-  const [searchResult, setSearchResult] = useState([]);
+  // const [searchResult, setSearchResult] = useState([]);
   const [search, setSearch] = useState("");
   const spotify = new SpotifyWebApi();
 
   useEffect(() => {
     console.log("ease", search);
-    if (!search) return setSearchResult([]);
+    // if (!search) return setSearchResult([]);
     // if (!accessToken) return;
-    if (!search)
-      return dispatch({
-        type: "SET_SEARCH_RESULT",
-        search_result: [],
-      });
-    let cancel = false;
+    // if (!search)
+    //   return dispatch({
+    //     type: "SET_SEARCH_RESULT",
+    //     search_result: [],
+    //   });
+    // let cancel = false;
+    if (!search) return;
     spotify.searchTracks(search).then((tracks) => {
       // if (cancel) return;
       dispatch({
@@ -54,7 +55,7 @@ function SearchBar() {
       // );
     });
 
-    return () => (cancel = true);
+    // return () => (cancel = true);
   }, [search]);
 
   const SearchHandler = (e) => {
@@ -63,6 +64,10 @@ function SearchBar() {
   const submitHandler = (e) => {
     e.preventDefault();
     setSearch("");
+    dispatch({
+      type: "SET_SEARCH",
+      search_result: [],
+    });
   };
   return (
     <div>
@@ -78,7 +83,7 @@ function SearchBar() {
         />
       </form>
       {/* {searchResult} */}
-      <SearchSong tracks={searchResult} />
+      {/* <SearchSong tracks={searchResult} /> */}
       {/* {searchResult.map((track) => (
         <SearchSong track={track} key={track.uri} />
       ))} */}

@@ -7,6 +7,7 @@
 .album-card figure {
   margin-bottom: 16px;
   height: 186px;
+  width: 186px;
 }
 
 .album-card figure img {
@@ -19,6 +20,7 @@
 
 .album-card h3 {
   font-size: 16px;
+  text-transform: capitalize;
   line-height: 24px;
   white-space: nowrap;
   overflow: hidden;

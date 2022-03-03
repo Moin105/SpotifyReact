@@ -1,0 +1,56 @@
+.banner {
+  height: 30vh;
+  max-height: 500px;
+  min-height: 340px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 37px;
+}
+
+.banner figure {
+  width: 232px;
+  margin: 85px 20px 0px 0px;
+  height: 232px;
+}
+
+.banner figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.banner .playlist-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-transform: capitalize;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.banner .playlist-info p {
+  font-weight: bold;
+}
+
+.banner .playlist-info h2 {
+  font-size: 92px;
+}
+
+.table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0px 37px;
+}
+
+div .table :nth-child(1) {
+  padding: 3px;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -3,21 +3,14 @@
   //   width: calc(100% - 241px);
   width: 100%;
   background: rgb(2, 0, 36);
-  background: linear-gradient(180deg, #01fe73 0%, #23238e 0%, #0c1512 45%);
+  background: linear-gradient(180deg, #01fe73 0%, #141441 0%, #000000 105%);
   padding: 50px 37px 0px 37px;
   position: relative;
   z-index: -2;
   color: white;
   //   margin: 0px 0px 0px 241px;
-  .section-1 {
-    display: flex;
-    flex-wrap: wrap;
-  }
 }
-.section-2 {
-  display: flex;
-  gap: 24px;
-}
+
 button {
   background-color: aliceblue;
   width: 10px;
