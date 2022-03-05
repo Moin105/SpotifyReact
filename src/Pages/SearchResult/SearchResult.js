@@ -17,7 +17,7 @@ function SearchResult(props) {
           setCategoryPlaylist={props.setCategoryPlaylist}
         />
       ) : (
-        <div>
+        <div className="wrap">
           {search_result?.tracks?.items?.map((tracks) => {
             return (
               <SongRow

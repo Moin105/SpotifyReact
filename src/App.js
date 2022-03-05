@@ -26,11 +26,12 @@ function App() {
   const [album, setAlbum] = useState(null);
   const [categories, setCategories] = useState([]);
   const [categoryPlaylist, setCategoryPlaylist] = useState([]);
-
+  const [bar, setBar] = useState(null);
   // const spotify = new SpotifyWebApi();
   // const [search, setSearch] = useState(null);
 
   useEffect(() => {
+    // let scroll =   window.scrollY
     const spotify = new SpotifyWebApi();
     // console.log("######", DataLayer);
     const hash = getTokenFromResponse();
@@ -99,8 +100,21 @@ function App() {
     // spotify.getTracks().then((tracks)=>{
     //    setTracks(tracks)
     // })
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
+    };
     console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY", search_result);
   }, []);
+
+  const isSticky = (e) => {
+    const header = document.querySelector(".wrapper");
+    const scrollTop = window.scrollY;
+    scrollTop >= 20
+      ? header.classList.add("is-sticky")
+      : header.classList.remove("is-sticky");
+  };
+
   console.log(":a", token);
   return (
     // <Playlist.Provider

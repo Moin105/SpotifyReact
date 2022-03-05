@@ -3,6 +3,7 @@ import SpotifyWebApi from "spotify-web-api-js";
 import { useDataLayerValue } from "../../store/DataLayer";
 import "./styles/style.css";
 import { Link } from "react-router-dom";
+import AlbumCard from "../../Components/AlbumCard/AlbumCard";
 // import Playlist from "../../store/playlist";
 const spotify = new SpotifyWebApi();
 
@@ -38,11 +39,10 @@ function SearchCategory(props) {
   }
   return (
     // <Playlist.Provider value={{ categoryPlaylist: "" }}>
-    <div className="categories">
+    <div className="categories wrap">
       {props?.categories?.categories?.items.map((category) => {
         return (
           <div
-            className="categoty_card"
             onClick={() => {
               // setCategoryPlaylist(category.id);
               GetCategory(category.id);
@@ -50,15 +50,12 @@ function SearchCategory(props) {
             }}
             key={category.id}
           >
-            <p className="category_name" onClick={() => {}}>
-              {category.name}
-            </p>
             <Link to={`/categories/` + category.name}>
-              {" "}
-              <img
-                className="category_img"
-                alt={category.name}
-                src={category.icons[0].url}
+              <AlbumCard
+                image={category.icons[0].url}
+                name={category.name}
+                genre={""}
+                key={category.id}
               />
             </Link>
           </div>

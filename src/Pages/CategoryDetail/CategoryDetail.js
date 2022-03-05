@@ -39,6 +39,7 @@ function CategoryDetail() {
           return (
             <Link to={`/playlist/` + playlist.name}>
               <div
+                key={playlist.name}
                 onClick={() => {
                   GetTracks(playlist.id);
                   dispatch({
@@ -48,6 +49,7 @@ function CategoryDetail() {
                     playlistName: playlist.name,
                     listType: playlist.type,
                   });
+
                   console.log("!!!!!!!!!!!!!!!!!");
                 }}
               >
@@ -55,7 +57,6 @@ function CategoryDetail() {
                   image={playlist.images[0].url}
                   name={playlist.name}
                   genre={""}
-                  key={playlist.name}
                 />
               </div>
             </Link>
