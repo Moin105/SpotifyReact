@@ -4,6 +4,7 @@ import { SpotifyWebApi } from "spotify-web-api-js";
 import "./styles/styles.css";
 import { useParams } from "react-router-dom";
 import SongRow from "../SongRow/SongRow";
+import song from "../../assets/images/song.PNG";
 
 function TrackTable() {
   const [
@@ -33,18 +34,18 @@ function TrackTable() {
         </div>
       </div>
 
-      <div className="table">
+      {/* <div className="table">
         <div>#</div>
         <div className="title">TITLE</div>
         <div className="album">ALBUM</div>
         <div className="date">DATE ADDED</div>
         <div>Time</div>
-      </div>
+      </div> */}
 
       {tracks?.items?.map((tracks) => {
         return (
           <SongRow
-            image={tracks?.track?.album?.images[0].url}
+            image={tracks?.track?.album?.images[0]?.url || song}
             name={tracks?.track.album?.name}
             artist={tracks?.track?.artists
               .map((artist) => artist.name)

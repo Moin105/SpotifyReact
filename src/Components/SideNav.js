@@ -9,6 +9,7 @@ import { BiHeartSquare } from "react-icons/bi";
 import SideBarOption from "./SideNav/SideBarOption";
 import { Link, NavLink } from "react-router-dom";
 import SpotifyWebApi from "spotify-web-api-js";
+import { useDataLayerValue } from "../store/DataLayer";
 
 // import { useDataLayerValue } from '../DataLayer';
 // import SpotifyWebApi from 'spotify-web-api-js';
@@ -16,10 +17,17 @@ import SpotifyWebApi from "spotify-web-api-js";
 
 function SideNav(props) {
   const spotify = new SpotifyWebApi();
-
+  const [
+    { playlists, tracks, image, description, likes, songs, singers, listType },
+    dispatch,
+  ] = useDataLayerValue();
   const toTracks = (a) => {
     spotify.getPlaylistTracks(a).then((tracks) => {
       console.log("#############", tracks);
+      dispatch({
+        type: "SET_TRACKS",
+        tracks: tracks,
+      });
     });
   };
 
@@ -50,11 +58,25 @@ function SideNav(props) {
       <div className="line"></div>
       <div className="playlist"></div>
       {props.playlists?.items?.map((playlist) => (
-        <SideBarOption
-          onClick={toTracks(playlist.id)}
-          title={playlist.name}
-          key={playlist.name}
-        />
+        <Link to={`/playlist/` + playlist.name}>
+          {/* //{" "} */}
+          <div
+            onClick={() => {
+              toTracks(playlist.id);
+              console.log("#############");
+              dispatch({
+                type: "SET_BANNER",
+                image: playlist.images[0].url,
+                description: playlist.description,
+                playlistName: playlist.name,
+                listType: playlist.type,
+              });
+            }}
+          >
+            <SideBarOption title={playlist.name} key={playlist.name} />
+          </div>
+          {/* //{" "} */}
+        </Link>
       ))}
     </div>
   );

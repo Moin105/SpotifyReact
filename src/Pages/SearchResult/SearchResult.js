@@ -7,7 +7,10 @@ function SearchResult(props) {
   const [{ search_result }] = useDataLayerValue();
   useEffect(() => {
     console.log("YYYYYYYYYYYYYYYYYYYYYY", search_result);
-  });
+    console.log("**********", window.location.pathname);
+    if (window.location.pathname === "/categories") props.setBar(true);
+    else props.setBar(false);
+  }, [window.location.pathname]);
 
   return (
     <div>

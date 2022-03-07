@@ -20,6 +20,8 @@ function Home(props) {
   const [{ playlists }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
+    console.log("**********", window.location.pathname);
+    if (window.location.pathname !== "/categories") props.setBar(false);
     console.log("token >>>>>>", props);
     spotify.getCategoryPlaylists("toplists", function (err, data) {
       if (err) console.error("wwwwwwwwww", err);

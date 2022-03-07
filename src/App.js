@@ -26,7 +26,7 @@ function App() {
   const [album, setAlbum] = useState(null);
   const [categories, setCategories] = useState([]);
   const [categoryPlaylist, setCategoryPlaylist] = useState([]);
-  const [bar, setBar] = useState(null);
+  const [bar, setBar] = useState(false);
   // const spotify = new SpotifyWebApi();
   // const [search, setSearch] = useState(null);
 
@@ -37,7 +37,11 @@ function App() {
     const hash = getTokenFromResponse();
     window.location.hash = "";
     const _token = hash.access_token;
+    if (window.location.pathname == "/categories") {
+      setBar(true);
 
+      console.log("*********", window.location.pathname);
+    }
     if (_token) {
       // setToken(_token);
       dispatch({
@@ -133,7 +137,9 @@ function App() {
                 <div className="wrapper">
                   <div className="header-row">
                     <Navigators />
-                    <SearchBar />
+                    {window.location.pathname == "/categories" ? (
+                      <SearchBar />
+                    ) : null}
                     {/* <NavBar/> */}
                   </div>
                   <UserDropDown user={user} />
@@ -144,6 +150,7 @@ function App() {
                   path="/"
                   element={
                     <Home
+                      setBar={setBar}
                       albums={album}
                       token={token}
                       user={user}
@@ -156,6 +163,7 @@ function App() {
                   path="/categories"
                   element={
                     <SearchResult
+                      setBar={setBar}
                       categories={categories}
                       setCategoryPlaylist={setCategoryPlaylist}
                     />
@@ -176,6 +184,7 @@ function App() {
           <Footer />
         </div>
       ) : (
+        //  routes =  [{ path: '/', component: Home, props: { searchBar: false } }, { path: '/categories', component: CatergoryDetails }]
         // <Routes>
         //   <Route
         //     path="/"
